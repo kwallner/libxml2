@@ -28,15 +28,15 @@
  * This is needed to compile libxml2 for Windows CE.
  * At least I tested it with WinCE 5.0 for Emulator and WinCE 4.2/SH4 target
  */
-#include <win32config.h>
+#include <win32xml2conf.h>
 #include <libxml/xmlversion.h>
 #else
 /*
  * Currently supported platforms use either autoconf or
- * copy to config.h own "preset" configuration file.
+ * copy to xml2conf.h own "preset" configuration file.
  * As result ifdef HAVE_CONFIG_H is omited here.
  */
-#include "config.h"
+#include <libxml/xml2conf.h>
 #include <libxml/xmlversion.h>
 #endif
 
@@ -122,6 +122,6 @@ int xmlInputReadCallbackNop(void *context, char *buffer, int len);
 #endif
 #endif
 #if !defined(PIC) && !defined(NOLIBTOOL) && !defined(LIBXML_STATIC)
-#  define LIBXML_STATIC
+/* #  define LIBXML_STATIC */
 #endif
 #endif /* ! __XML_LIBXML_H__ */

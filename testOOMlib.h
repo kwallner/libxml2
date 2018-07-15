@@ -1,7 +1,7 @@
 #ifndef TEST_OOM_LIB_H
 #define TEST_OOM_LIB_H
 
-#include <config.h>
+#include <xml2conf.h>
 
 #ifdef HAVE_SYS_TYPES_H
 #include <sys/types.h>
