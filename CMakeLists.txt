@@ -50,7 +50,7 @@ set(WITH_DOCB 1)
 set(WITH_XPATH 1)
 set(WITH_XPTR 1)
 set(WITH_XINCLUDE 1)
-set(WITH_ICONV 1)
+set(WITH_ICONV 1) # TODO: Set from conan
 set(WITH_ICU 0)
 set(WITH_ISO8859X 1)
 set(WITH_DEBUG 0)
@@ -60,7 +60,7 @@ set(WITH_REGEXPS 0)
 set(WITH_SCHEMAS 0)
 set(WITH_SCHEMATRON 0)
 set(WITH_MODULES 0)
-set(WITH_ZLIB 0)
+set(WITH_ZLIB 0) # TODO: Set from conan
 set(WITH_LZMA 0)
 
 CONFIGURE_FILE( ${CMAKE_CURRENT_SOURCE_DIR}/include/libxml/xmlversion.h.in ${CMAKE_CURRENT_BINARY_DIR}/include/libxml/xmlversion.h @ONLY)
@@ -484,11 +484,17 @@ IF (WIN32 AND WITH_ICONV)
     TARGET_LINK_LIBRARIES(xml2 iconv)
 ENDIF()
 set_target_properties(xml2 PROPERTIES 
-  INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_CURRENT_SOURCE_DIR}/include;${CMAKE_CURRENT_BINARY_DIR}"
   VERSION 2.9.8
   SOVERSION 2.9
 )
 
+target_include_directories(xml2
+    PUBLIC
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include;${CMAKE_CURRENT_BINARY_DIR}>
+        $<INSTALL_INTERFACE:include>
+    )
+
+# Tests
 function(add_xml2_test TEST_NAME)
     add_executable(${TEST_NAME} ${TEST_NAME}.c)
 
@@ -503,3 +509,53 @@ target_link_libraries(testHTML PRIVATE xml2)
  
 add_executable(runtest runtest.c)
 target_link_libraries(runtest PRIVATE xml2)
+
+# Install
+install(FILES 
+	${CMAKE_CURRENT_SOURCE_DIR}/libxml.h
+	DESTINATION include
+	)
+
+install(TARGETS xml2
+    EXPORT Targets
+    LIBRARY DESTINATION lib
+    ARCHIVE DESTINATION lib
+    RUNTIME DESTINATION bin
+    INCLUDES DESTINATION include
+    )
+    
+#
+# Export
+#
+include(CMakePackageConfigHelpers)
+
+write_basic_package_version_file("${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake"
+    VERSION ${PROJECT_VERSION}
+    COMPATIBILITY SameMajorVersion
+    )
+
+configure_file(
+    "${CMAKE_CURRENT_SOURCE_DIR}/LibraryConfig.cmake.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
+    @ONLY
+    )
+
+install(
+    FILES
+        "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake"
+        "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
+    DESTINATION
+        . # Root Directory
+    )
+
+install(
+    FILES
+        "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
+    DESTINATION
+        share/cmake/${PROJECT_NAME}/
+    )
+
+install(EXPORT Targets
+    FILE ${PROJECT_NAME}Targets.cmake
+    DESTINATION share/cmake/${PROJECT_NAME}
+    )

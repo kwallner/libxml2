@@ -22,6 +22,7 @@ class libxml2Conan(ConanFile):
         cmake = CMake(self)
         cmake.configure()
         cmake.build()
+        # cmake.test() # FIXME
         cmake.install()
 
     def package_info(self):
