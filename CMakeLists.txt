@@ -478,10 +478,10 @@ ADD_LIBRARY(xml2
 	)
     
 IF (WITH_ZLIB)
-    TARGET_LINK_LIBRARIES(xml2 zlib)
+    TARGET_LINK_LIBRARIES(xml2 PUBLIC zlib)
 ENDIF ()
 IF (WIN32 AND WITH_ICONV)
-    TARGET_LINK_LIBRARIES(xml2 iconv)
+    TARGET_LINK_LIBRARIES(xml2 PUBLIC iconv)
 ENDIF()
 set_target_properties(xml2 PROPERTIES 
   VERSION 2.9.8
@@ -514,6 +514,15 @@ target_link_libraries(runtest PRIVATE xml2)
 install(FILES 
 	${CMAKE_CURRENT_SOURCE_DIR}/libxml.h
 	DESTINATION include
+	)
+install(DIRECTORY 
+	${CMAKE_CURRENT_SOURCE_DIR}/include/libxml
+	DESTINATION include
+	)
+install(FILES 
+    ${CMAKE_CURRENT_BINARY_DIR}/include/libxml/xmlversion.h
+	${CMAKE_CURRENT_BINARY_DIR}/include/libxml/xml2conf.h
+	DESTINATION include/libxml
 	)
 
 install(TARGETS xml2

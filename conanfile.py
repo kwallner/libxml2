@@ -1,4 +1,3 @@
-import os
 from conans import ConanFile, CMake
 
 class libxml2Conan(ConanFile):
@@ -9,7 +8,7 @@ class libxml2Conan(ConanFile):
     settings =  "os", "compiler", "arch", "build_type"
     options = {"shared": [True, False], "fPIC": [True, False]}
     default_options = "shared=False", "fPIC=True"
-    url = "http://github.com/kwallner/libiconv"
+    url = "http://github.com/kwallner/libxml2"
     scm = { "type": "git", "url": "auto", "revision": "auto" }
     
     def config_options(self):
@@ -26,4 +25,4 @@ class libxml2Conan(ConanFile):
         cmake.install()
 
     def package_info(self):
-        self.env_info.libxml2_DIR = os.path.join(self.package_folder, 'setup')
+        self.env_info.libxml2_DIR = self.package_folder
