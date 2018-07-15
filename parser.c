@@ -9256,7 +9256,7 @@ xmlParseStartTag2(xmlParserCtxtPtr ctxt, const xmlChar **pref,
                              "xmlns: '%s' is not a valid URI\n",
                                        URL, NULL, NULL);
                 } else {
-                    if (uri->scheme == NULL) {
+                    if ((ctxt->pedantic) && (uri->scheme == NULL)) {
                         xmlNsWarn(ctxt, XML_WAR_NS_URI_RELATIVE,
                                   "xmlns: URI %s is not absolute\n",
                                   URL, NULL, NULL);
