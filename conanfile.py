@@ -10,13 +10,14 @@ class libxml2Conan(ConanFile):
     default_options = "shared=False", "fPIC=True"
     url = "http://github.com/kwallner/libxml2"
     scm = { "type": "git", "url": "auto", "revision": "auto" }
-    
+
     def config_options(self):
         del self.settings.compiler.libcxx
 
     def requirements(self):
-        self.requires("libiconv/1.15.0@%s/%s" % ("kwallner", "testing"))
-        
+        if self.settings.os == "Windows":
+            self.requires("libiconv/1.15.0@%s/%s" % ("kwallner", "testing"))
+
     def build(self):
         cmake = CMake(self)
         cmake.configure()

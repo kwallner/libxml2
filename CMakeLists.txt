@@ -22,7 +22,7 @@ conan_define_targets()
 
 # TESTS
 include (CTest)
-    
+
 #============================================================
 # CONFIGURE
 #
@@ -75,7 +75,7 @@ CONFIGURE_FILE( ${CMAKE_CURRENT_SOURCE_DIR}/include/libxml/xmlversion.h.in ${CMA
 
 INCLUDE (CheckIncludeFiles)
 INCLUDE (CheckFunctionExists)
-INCLUDE (CheckLibraryExists) 
+INCLUDE (CheckLibraryExists)
 
 # Define if IPV6 support is there
 SET(SUPPORT_IP6 OFF)
@@ -89,16 +89,16 @@ CHECK_INCLUDE_FILES(ansidecl.h HAVE_ANSIDECL_H)
 # Define to 1 if you have the <arpa/inet.h> header file.
 CHECK_INCLUDE_FILES(arpa/inet.h HAVE_ARPA_INET_H)
 
-# Define to 1 if you have the <arpa/nameser.h> header file. 
+# Define to 1 if you have the <arpa/nameser.h> header file.
 CHECK_INCLUDE_FILES(arpa/nameser.h HAVE_ARPA_NAMESER_H)
 
 # Whether struct sockaddr::__ss_family exists
 SET(HAVE_BROKEN_SS_FAMILY OFF)
 
-# Define to 1 if you have the `class' function. 
+# Define to 1 if you have the `class' function.
 SET(HAVE_CLASS OFF)
 
-# Define to 1 if you have the <ctype.h> header file. 
+# Define to 1 if you have the <ctype.h> header file.
 CHECK_INCLUDE_FILES(ctype.h HAVE_CTYPE_H)
 
 # Define to 1 if you have the <dirent.h> header file.
@@ -107,10 +107,10 @@ CHECK_INCLUDE_FILES(dirent.h HAVE_DIRENT_H)
 # Define to 1 if you have the <dlfcn.h> header file.
 CHECK_INCLUDE_FILES(dlfcn.h HAVE_DLFCN_H)
 
-# Have dlopen based dso 
+# Have dlopen based dso
 CHECK_LIBRARY_EXISTS(dl dlopen "" HAVE_DLOPEN)
 
-# Define to 1 if you have the <dl.h> header file. 
+# Define to 1 if you have the <dl.h> header file.
 CHECK_INCLUDE_FILES(dl.h HAVE_DL_H)
 
 # Define to 1 if you have the <errno.h> header file.
@@ -119,46 +119,46 @@ CHECK_INCLUDE_FILES(errno.h HAVE_ERRNO_H)
 # Define to 1 if you have the <fcntl.h> header file.
 CHECK_INCLUDE_FILES(fcntl.h HAVE_FCNTL_H)
 
-# Define to 1 if you have the `finite' function. 
+# Define to 1 if you have the `finite' function.
 CHECK_LIBRARY_EXISTS(m finite "" HAVE_FINITE)
 
-# Define to 1 if you have the <float.h> header file. 
+# Define to 1 if you have the <float.h> header file.
 CHECK_INCLUDE_FILES(float.h HAVE_FLOAT_H)
 
-# Define to 1 if you have the `fpclass' function. 
+# Define to 1 if you have the `fpclass' function.
 CHECK_FUNCTION_EXISTS(fpclass HAVE_FPCLASS)
 
-# Define to 1 if you have the `fprintf' function. 
+# Define to 1 if you have the `fprintf' function.
 CHECK_FUNCTION_EXISTS(fprintf HAVE_FPRINTF)
 
-# Define to 1 if you have the `fp_class' function. 
+# Define to 1 if you have the `fp_class' function.
 CHECK_FUNCTION_EXISTS(fp_class HAVE_FP_CLASS)
 
 # Define to 1 if you have the <fp_class.h> header file.
 CHECK_INCLUDE_FILES(fp_class.h HAVE_FP_CLASS_H)
 
-# Define to 1 if you have the `ftime' function. 
+# Define to 1 if you have the `ftime' function.
 CHECK_FUNCTION_EXISTS(ftime HAVE_FTIME)
 
-# Define if getaddrinfo is there 
+# Define if getaddrinfo is there
 CHECK_FUNCTION_EXISTS(getaddrinfo HAVE_GETADDRINFO)
 
-# Define to 1 if you have the `gettimeofday' function. 
+# Define to 1 if you have the `gettimeofday' function.
 CHECK_FUNCTION_EXISTS(gettimeofday HAVE_GETTIMEOFDAY)
 
-# Define to 1 if you have the <ieeefp.h> header file. 
+# Define to 1 if you have the <ieeefp.h> header file.
 CHECK_INCLUDE_FILES(ieeefp.h HAVE_IEEEFP_H)
 
-# Define to 1 if you have the <inttypes.h> header file. 
+# Define to 1 if you have the <inttypes.h> header file.
 CHECK_INCLUDE_FILES(inttypes.h HAVE_INTTYPES_H)
 
 # Define if math library is there (-lm)
 CHECK_LIBRARY_EXISTS(m sin "" HAVE_LIBM)
 
-# Define if isinf is there 
+# Define if isinf is there
 CHECK_FUNCTION_EXISTS(isinf HAVE_ISINF)
 
-# Define if isnan is there 
+# Define if isnan is there
 CHECK_FUNCTION_EXISTS(isnan HAVE_ISNAN)
 
 # Define to 1 if you have the `isnand' function.
@@ -173,7 +173,7 @@ IF (WITH_THREADS)
 CHECK_LIBRARY_EXISTS(pthread pthread_create "" HAVE_LIBPTHREAD)
 ENDIF (WITH_THREADS)
 
-# Define if readline library is there (-lreadline) 
+# Define if readline library is there (-lreadline)
 SET(HAVE_LIBREADLINE OFF)
 
 # Have compression library
@@ -194,16 +194,16 @@ CHECK_INCLUDE_FILES(malloc.h HAVE_MALLOC_H)
 # Define to 1 if you have the <math.h> header file.
 CHECK_INCLUDE_FILES(math.h HAVE_MATH_H)
 
-# Define to 1 if you have the <memory.h> header file. 
+# Define to 1 if you have the <memory.h> header file.
 CHECK_INCLUDE_FILES(memory.h HAVE_MEMORY_H)
 
-# Define to 1 if you have the <nan.h> header file. 
+# Define to 1 if you have the <nan.h> header file.
 CHECK_INCLUDE_FILES(nan.h HAVE_NAN_H)
 
 # Define to 1 if you have the <ndir.h> header file, and it defines `DIR'.
 CHECK_INCLUDE_FILES(ndir.h HAVE_NDIR_H)
 
-# Define to 1 if you have the <netdb.h> header file. 
+# Define to 1 if you have the <netdb.h> header file.
 CHECK_INCLUDE_FILES(netdb.h HAVE_NETDB_H)
 
 # Define to 1 if you have the <netinet/in.h> header file.
@@ -212,67 +212,67 @@ CHECK_INCLUDE_FILES(netinet/in.h HAVE_NETINET_IN_H)
 # Define to 1 if you have the `printf' function.
 CHECK_FUNCTION_EXISTS(printf HAVE_PRINTF)
 
-# Define if <pthread.h> is there 
+# Define if <pthread.h> is there
 SET(HAVE_PTHREAD_H OFF)
 IF (WITH_THREADS)
 CHECK_INCLUDE_FILES(pthread.h HAVE_PTHREAD_H)
 ENDIF (WITH_THREADS)
 
-# Define to 1 if you have the <resolv.h> header file. 
+# Define to 1 if you have the <resolv.h> header file.
 CHECK_INCLUDE_FILES(resolv.h HAVE_RESOLV_H)
 
-# Have shl_load based dso 
+# Have shl_load based dso
 CHECK_FUNCTION_EXISTS(shl_load HAVE_SHLLOAD)
 
-# Define to 1 if you have the `signal' function. 
+# Define to 1 if you have the `signal' function.
 CHECK_FUNCTION_EXISTS(signal HAVE_SIGNAL)
 
-# Define to 1 if you have the <signal.h> header file. 
+# Define to 1 if you have the <signal.h> header file.
 CHECK_INCLUDE_FILES(signal.h HAVE_SIGNAL_H)
 
-# Define to 1 if you have the `snprintf' function. 
+# Define to 1 if you have the `snprintf' function.
 CHECK_FUNCTION_EXISTS(snprintf HAVE_SNPRINTF)
 
-# Define to 1 if you have the `sprintf' function. 
+# Define to 1 if you have the `sprintf' function.
 CHECK_FUNCTION_EXISTS(sprintf HAVE_SPRINTF)
 
-# Define to 1 if you have the `sscanf' function. 
+# Define to 1 if you have the `sscanf' function.
 CHECK_FUNCTION_EXISTS(sscanf HAVE_SSCANF)
 
 # Define to 1 if you have the `stat' function.
 CHECK_FUNCTION_EXISTS(stat HAVE_STAT)
 
-# Define to 1 if you have the <stdarg.h> header file. 
+# Define to 1 if you have the <stdarg.h> header file.
 CHECK_INCLUDE_FILES(stdarg.h HAVE_STDARG_H)
 
 # Define to 1 if you have the <stdint.h> header file.
 CHECK_INCLUDE_FILES(stdint.h HAVE_STDINT_H)
 
-# Define to 1 if you have the <stdlib.h> header file. 
+# Define to 1 if you have the <stdlib.h> header file.
 CHECK_INCLUDE_FILES(stdlib.h HAVE_STDLIB_H)
 
-# Define to 1 if you have the `strdup' function. 
+# Define to 1 if you have the `strdup' function.
 CHECK_FUNCTION_EXISTS(strdup HAVE_STRDUP)
 
-# Define to 1 if you have the `strerror' function. 
+# Define to 1 if you have the `strerror' function.
 CHECK_FUNCTION_EXISTS(strerror HAVE_STRERROR)
 
-# Define to 1 if you have the `strftime' function. 
+# Define to 1 if you have the `strftime' function.
 CHECK_FUNCTION_EXISTS(strftime HAVE_STRFTIME)
 
-# Define to 1 if you have the <strings.h> header file. 
+# Define to 1 if you have the <strings.h> header file.
 CHECK_INCLUDE_FILES(strings.h HAVE_STRINGS_H)
 
 # Define to 1 if you have the <string.h> header file.
 CHECK_INCLUDE_FILES(string.h HAVE_STRING_H)
 
-# Define to 1 if you have the `strndup' function. 
+# Define to 1 if you have the `strndup' function.
 CHECK_FUNCTION_EXISTS(strndup HAVE_STRNDUP)
 
 # Define to 1 if you have the <sys/dir.h> header file, and it defines `DIR'.
 CHECK_INCLUDE_FILES(sys/dir.h HAVE_SYS_DIR_H)
 
-# Define to 1 if you have the <sys/mman.h> header file. 
+# Define to 1 if you have the <sys/mman.h> header file.
 CHECK_INCLUDE_FILES(sys/mman.h HAVE_SYS_MMAN_H)
 
 # Define to 1 if you have the <sys/ndir.h> header file, and it defines `DIR'.
@@ -284,22 +284,22 @@ CHECK_INCLUDE_FILES(sys/select.h HAVE_SYS_SELECT_H)
 # Define to 1 if you have the <sys/socket.h> header file.
 CHECK_INCLUDE_FILES(sys/socket.h HAVE_SYS_SOCKET_H)
 
-# Define to 1 if you have the <sys/stat.h> header file. 
+# Define to 1 if you have the <sys/stat.h> header file.
 CHECK_INCLUDE_FILES(sys/stat.h HAVE_SYS_STAT_H)
 
 # Define to 1 if you have the <sys/timeb.h> header file.
 CHECK_INCLUDE_FILES(sys/timeb.h HAVE_SYS_TIMEB_H)
 
-# Define to 1 if you have the <sys/time.h> header file. 
+# Define to 1 if you have the <sys/time.h> header file.
 CHECK_INCLUDE_FILES(sys/time.h HAVE_SYS_TIME_H)
 
-# Define to 1 if you have the <sys/types.h> header file. 
+# Define to 1 if you have the <sys/types.h> header file.
 CHECK_INCLUDE_FILES(sys/types.h HAVE_SYS_TYPES_H)
 
-# Define to 1 if you have the <time.h> header file. 
+# Define to 1 if you have the <time.h> header file.
 CHECK_INCLUDE_FILES(time.h HAVE_TIME_H)
 
-# Define to 1 if you have the <unistd.h> header file. 
+# Define to 1 if you have the <unistd.h> header file.
 CHECK_INCLUDE_FILES(unistd.h HAVE_UNISTD_H)
 IF (WIN32)
 SET(HAVE_UNISTD_H OFF)
@@ -313,22 +313,22 @@ ELSE()
 SET(HAVE_VA_COPY 1)
 ENDIF()
 
-# Define to 1 if you have the `vfprintf' function. 
+# Define to 1 if you have the `vfprintf' function.
 CHECK_FUNCTION_EXISTS(vfprintf HAVE_VFPRINTF)
 
-# Define to 1 if you have the `vsnprintf' function. 
+# Define to 1 if you have the `vsnprintf' function.
 CHECK_FUNCTION_EXISTS(vsnprintf HAVE_VSNPRINTF)
 
-# Define to 1 if you have the `vsprintf' function. 
+# Define to 1 if you have the `vsprintf' function.
 CHECK_FUNCTION_EXISTS(vsprintf HAVE_VSPRINTF)
 
-# Define to 1 if you have the <zlib.h> header file. 
+# Define to 1 if you have the <zlib.h> header file.
 SET(HAVE_ZLIB_H OFF)
 if (WITH_ZLIB)
 set(HAVE_ZLIB_H ON)
 endif()
 
-# Define to 1 if you have the `_stat' function. 
+# Define to 1 if you have the `_stat' function.
 CHECK_FUNCTION_EXISTS(_stat HAVE__STAT)
 
 # Whether __va_copy() is available
@@ -339,45 +339,45 @@ CHECK_FUNCTION_EXISTS(__va_copy HAVE___VA_COPY)
 ENDIF()
 
 
-# Name of package 
+# Name of package
 SET(PACKAGE)
 
-# Define to the address where bug reports for this package should be sent. 
+# Define to the address where bug reports for this package should be sent.
 SET(PACKAGE_BUGREPORT)
 
-# Define to the full name of this package. 
+# Define to the full name of this package.
 SET(PACKAGE_NAME)
 
-# Define to the full name and version of this package. 
+# Define to the full name and version of this package.
 SET(PACKAGE_STRING)
 
-# Define to the one symbol short name of this package. 
+# Define to the one symbol short name of this package.
 SET(PACKAGE_TARNAME)
 
 # Define to the version of this package.
 SET(PACKAGE_VERSION)
 
-# Define to 1 if the C compiler supports function prototypes. 
+# Define to 1 if the C compiler supports function prototypes.
 SET(PROTOTYPES ON)
 
-# Define to 1 if you have the ANSI C header files. 
+# Define to 1 if you have the ANSI C header files.
 SET(STDC_HEADERS ON)
 
-# Support for IPv6 
+# Support for IPv6
 SET(SUPPORT_IP6 OFF)
 
-# Version number of package 
+# Version number of package
 SET(VERSION)
 
-# Determine what socket length (socklen_t) data type is 
+# Determine what socket length (socklen_t) data type is
 SET(XML_SOCKLEN_T "unsigned int")
 
-# Using the Win32 Socket implementation 
+# Using the Win32 Socket implementation
 IF (WIN32)
 SET(_WINSOCKAPI_ ON)
 ENDIF (WIN32)
 
-# Define like PROTOTYPES; this can be used by system headers. 
+# Define like PROTOTYPES; this can be used by system headers.
 SET(__PROTOTYPES ON)
 
 # Win32 Std C name mangling work-around
@@ -388,7 +388,7 @@ SET(__PROTOTYPES ON)
 # ss_family is not defined here, use __ss_family instead
 SET(ss_family)
 
-# Win32 Std C name mangling work-around 
+# Win32 Std C name mangling work-around
 #IF (WIN32)
 #SET(vsnprintf _vsnprintf)
 #ENDIF (WIN32)
@@ -405,9 +405,9 @@ IF (WITH_ZLIB)
 find_package(zlib REQUIRED)
 ENDIF (WITH_ZLIB)
 
-IF (WITH_ICONV)
+IF (WITH_ICONV AND WIN32)
 find_package(libiconv REQUIRED)
-ENDIF (WITH_ICONV)
+ENDIF (WITH_ICONV AND WIN32)
 
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR}/include ${CMAKE_CURRENT_SOURCE_DIR}/include )
 
@@ -423,7 +423,7 @@ ADD_DEFINITIONS(/wd4244)
 ADD_DEFINITIONS(/wd4267)
 ENDIF (MSVC)
 
-ADD_LIBRARY(xml2 
+ADD_LIBRARY(xml2
     DOCBparser.c
     HTMLparser.c
     HTMLtree.c
@@ -476,14 +476,14 @@ ADD_LIBRARY(xml2
     xpointer.c
     xzlib.c
 	)
-    
+
 IF (WITH_ZLIB)
     TARGET_LINK_LIBRARIES(xml2 PUBLIC zlib)
 ENDIF ()
 IF (WIN32 AND WITH_ICONV)
     TARGET_LINK_LIBRARIES(xml2 PUBLIC iconv)
 ENDIF()
-set_target_properties(xml2 PROPERTIES 
+set_target_properties(xml2 PROPERTIES
   VERSION 2.9.8
   SOVERSION 2.9
 )
@@ -493,6 +493,10 @@ target_include_directories(xml2
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include;${CMAKE_CURRENT_BINARY_DIR}>
         $<INSTALL_INTERFACE:include>
     )
+
+if (UNIX)
+target_link_libraries(xml2 PUBLIC m)
+endif()
 
 # Tests
 function(add_xml2_test TEST_NAME)
@@ -506,20 +510,20 @@ endfunction()
 
 add_executable(testHTML testHTML.c)
 target_link_libraries(testHTML PRIVATE xml2)
- 
+
 add_executable(runtest runtest.c)
 target_link_libraries(runtest PRIVATE xml2)
 
 # Install
-install(FILES 
+install(FILES
 	${CMAKE_CURRENT_SOURCE_DIR}/libxml.h
 	DESTINATION include
 	)
-install(DIRECTORY 
+install(DIRECTORY
 	${CMAKE_CURRENT_SOURCE_DIR}/include/libxml
 	DESTINATION include
 	)
-install(FILES 
+install(FILES
     ${CMAKE_CURRENT_BINARY_DIR}/include/libxml/xmlversion.h
 	${CMAKE_CURRENT_BINARY_DIR}/include/libxml/xml2conf.h
 	DESTINATION include/libxml
@@ -532,7 +536,7 @@ install(TARGETS xml2
     RUNTIME DESTINATION bin
     INCLUDES DESTINATION include
     )
-    
+
 #
 # Export
 #
